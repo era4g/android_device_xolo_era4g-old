@@ -1,0 +1,13 @@
+on cali
+    insmod /system/lib/modules/focaltech_ts.ko
+
+service download /system/bin/download
+    class cali
+    user root
+    group root
+
+on factorytest
+service download-ft /system/bin/download
+    class factorytest
+    user root
+    group root

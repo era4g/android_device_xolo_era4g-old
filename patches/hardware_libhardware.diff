@@ -1,0 +1,58 @@
+diff --git a/include/hardware/audio.h b/include/hardware/audio.h
+index 9164542..0cbd49c 100644
+--- a/include/hardware/audio.h
++++ b/include/hardware/audio.h
+@@ -635,6 +635,19 @@ struct audio_hw_device {
+     void (*close_output_stream)(struct audio_hw_device *dev,
+                                 struct audio_stream_out* stream_out);
+ 
++#ifdef SPRD_HARDWARE
++    /** This method creates and opens the audio hardware output
++     *  for broadcast stream */
++    int (*open_broadcast_stream)(struct audio_hw_device *dev, uint32_t devices,
++                                 int format, uint32_t channels,
++                                 uint32_t sample_rate,
++                                 uint32_t audio_source,
++                                 struct audio_broadcast_stream **out);
++
++    void (*close_broadcast_stream)(struct audio_hw_device *dev,
++                                   struct audio_broadcast_stream *out);
++#endif
++
+     /** This method creates and opens the audio hardware input stream */
+     int (*open_input_stream)(struct audio_hw_device *dev,
+                              audio_io_handle_t handle,
+diff --git a/include/hardware/audio_policy.h b/include/hardware/audio_policy.h
+index 99cb044..549750a 100644
+--- a/include/hardware/audio_policy.h
++++ b/include/hardware/audio_policy.h
+@@ -233,6 +233,12 @@ struct audio_policy {
+             audio_stream_type_t stream,
+             uint32_t in_past_ms);
+ 
++
++    #ifdef SPRD_HARDWARE
++    /** SPRD Checks whether audio recording is going in AudioFlinger */
++    bool (*is_audio_recording)(const struct audio_policy *pol);
++    #endif
++
+     bool (*is_stream_active_remotely)(const struct audio_policy *pol,
+             audio_stream_type_t stream,
+             uint32_t in_past_ms);
+diff --git a/include/hardware/gralloc.h b/include/hardware/gralloc.h
+index 07ac029..6a293f5 100644
+--- a/include/hardware/gralloc.h
++++ b/include/hardware/gralloc.h
+@@ -156,6 +156,12 @@ enum {
+     /* SEC Private usage , for Overlay path at HWC */
+     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
+ #endif
++
++#ifdef SPRD_HARDWARE
++    GRALLOC_USAGE_OVERLAY_BUFFER        =  0x01000000,
++    GRALLOC_USAGE_VIDEO_BUFFER          =  0x02000000,
++    GRALLOC_USAGE_CAMERA_BUFFER         =  0x04000000,
++#endif
+ };
+ 
+ /*****************************************************************************/

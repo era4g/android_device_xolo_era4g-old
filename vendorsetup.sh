@@ -1,0 +1,2 @@
+add_lunch_combo cm_era4g-userdebug
+add_lunch_combo cm_era4g-eng

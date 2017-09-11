@@ -1,0 +1,69 @@
+# Un-categorized
+bin/engpc
+
+# GPS
+lib/liblcsagent.so
+lib/hw/gps.default.so
+
+# Graphics rendering
+lib/libboost.so
+lib/egl/libGLES_mali.so
+
+# Audio
+etc/codec_pga.xml
+lib/libatchannel.so
+
+
+# RIL
+bin/rild_sp
+bin/modemd
+bin/phoneserver
+bin/modem_control
+bin/ext_data.sh
+bin/ext_kill.sh
+bin/flush_slog_modem
+bin/modemDriver_vpad_main
+lib/libril_sp.so
+lib/librilutils_sp.so
+lib/libreference-ril_sp.so
+
+# bluetooth
+bin/wcnd
+bin/wcnd_cli
+
+# Camera
+lib/libmorpho_easy_hdr.so
+lib/libaf.so
+lib/liblsc.so
+lib/libae.so
+lib/libawb.so
+lib/libev.so
+
+# ION
+lib/libmemoryheapion.so
+lib/libion.so
+
+# Codecs
+lib/libomx_mp3dec_sprd.so
+lib/libomx_avcdec_hw_sprd.so
+lib/libomx_avcenc_hw_sprd.so
+lib/libomx_vpxdec_hw_sprd.so
+lib/libomx_m4vh263dec_hw_sprd.so
+lib/libomx_m4vh263enc_hw_sprd.so
+lib/libstagefright_sprd_mpeg4dec.so
+lib/libstagefright_sprd_h264dec.so
+lib/libstagefright_sprd_mpeg4dec.so
+lib/libstagefright_sprd_h264enc.so
+lib/libstagefright_sprd_mpeg4enc.so
+
+
+# HAL
+lib/hw/camera.sc8830.so
+lib/hw/gralloc.sc8830.so
+lib/hw/hwcomposer.sc8830.so
+lib/hw/sensors.sc8830.so
+lib/hw/sprd_gsp.sc8830.so
+lib/hw/camera.sc8830.so
+lib/hw/power.sc8830.so
+lib/hw/gps.default.so
+lib/hw/lights.sc8830.so
